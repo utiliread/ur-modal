@@ -1,0 +1,15 @@
+{
+  "name": "ur-modal",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "aurelia-dialog": "^1.0.0-rc.2.0.0"
+  }
+}
