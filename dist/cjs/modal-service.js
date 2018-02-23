@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { DialogService } from 'aurelia-dialog';
-import { autoinject } from 'aurelia-framework';
+Object.defineProperty(exports, "__esModule", { value: true });
+const aurelia_dialog_1 = require("aurelia-dialog");
+const aurelia_framework_1 = require("aurelia-framework");
 let ModalService = class ModalService {
     constructor(dialog) {
         this.dialog = dialog;
@@ -25,7 +27,8 @@ let ModalService = class ModalService {
     }
 };
 ModalService = __decorate([
-    autoinject(),
-    __metadata("design:paramtypes", [DialogService])
+    aurelia_framework_1.autoinject(),
+    __metadata("design:paramtypes", [aurelia_dialog_1.DialogService])
 ], ModalService);
-export { ModalService };
+exports.ModalService = ModalService;
+//# sourceMappingURL=modal-service.js.map
