@@ -7,6 +7,7 @@ export declare class ConfirmModal {
     buttons: Map<string, ConfirmButton>;
     constructor(controller: DialogController);
     activate(model: ConfirmModel): void;
+    click(id: string): void;
     close(): void;
 }
 export interface ConfirmModel {
@@ -23,5 +24,5 @@ export interface ConfirmModel {
 export interface ConfirmButton {
     text?: string;
     btnClass?: string;
-    action?: (id?: string) => void;
+    ok?: boolean;
 }

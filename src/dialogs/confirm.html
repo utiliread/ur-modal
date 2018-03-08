@@ -12,7 +12,7 @@
                 <button repeat.for="id,button of buttons" type="button"
                     innerhtml.bind="btn.text"
                     class="btn ${btn.btnClass}"
-                    click.delegate="btn.action(id)">
+                    click.delegate="click(id)">
                 </button>
             </div>
         </div>

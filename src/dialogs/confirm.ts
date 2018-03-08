@@ -24,9 +24,6 @@ export class ConfirmModal {
                 }
                 model.buttons.ok.text = model.buttons.ok.text || 'OK';
                 model.buttons.ok.btnClass = model.buttons.ok.btnClass || 'btn-primary';
-                if (!model.buttons.ok.action) {
-                    model.buttons.ok.action = id => this.controller.ok(id);
-                }
             }
 
             if (model.buttons.cancel) {
@@ -35,27 +32,28 @@ export class ConfirmModal {
                 }
                 model.buttons.cancel.text = model.buttons.cancel.text || 'Annulér';
                 model.buttons.cancel.btnClass = model.buttons.cancel.btnClass || 'btn-default';
-                if (!model.buttons.cancel.action) {
-                    model.buttons.cancel.action = id => this.controller.cancel(id);
-                }
             }
 
             for (let id in model.buttons) {
-                let button = model.buttons[id];
-
-                button.action = button.action || nop;
-
-                this.buttons.set(id, button);
+                this.buttons.set(id, model.buttons[id]);
             }
+        }
+    }
+    
+    click(id: string) {
+        let button = this.buttons.get(id)!;
+
+        if (button.ok === false) {
+            this.controller.cancel(id);
+        }
+        else {
+            this.controller.ok(id);
         }
     }
 
     close() {
         this.controller.cancel('close');
     }
-}
-
-function nop() {
 }
 
 export interface ConfirmModel {
@@ -71,5 +69,5 @@ export interface ConfirmModel {
 export interface ConfirmButton {
     text?: string;
     btnClass?: string;
-    action?: (id?: string) => void;
+    ok?: boolean;
 }
