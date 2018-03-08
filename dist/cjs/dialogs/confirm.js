@@ -41,9 +41,11 @@ var ConfirmModal = /** @class */ (function () {
             }
         }
     };
+    ConfirmModal.prototype.close = function () {
+        this.controller.cancel('close');
+    };
     ConfirmModal = __decorate([
         aurelia_framework_1.autoinject(),
-        aurelia_framework_1.useView('./confirm.html'),
         __metadata("design:paramtypes", [aurelia_dialog_1.DialogController])
     ], ConfirmModal);
     return ConfirmModal;

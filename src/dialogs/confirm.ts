@@ -1,9 +1,8 @@
-import { PLATFORM, autoinject, useView } from 'aurelia-framework'
+import { PLATFORM, autoinject } from 'aurelia-framework'
 
 import { DialogController } from 'aurelia-dialog';
 
 @autoinject()
-@useView('./confirm.html')
 export class ConfirmModal {
     title!: string;
     content!: string;
@@ -41,6 +40,10 @@ export class ConfirmModal {
                 this.buttons.set(id, button);
             }
         }
+    }
+
+    close() {
+        this.controller.cancel('close');
     }
 }
 

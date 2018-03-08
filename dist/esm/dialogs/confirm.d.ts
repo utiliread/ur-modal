@@ -7,6 +7,7 @@ export declare class ConfirmModal {
     buttons: Map<string, ConfirmButton>;
     constructor(controller: DialogController);
     activate(model: ConfirmModel): void;
+    close(): void;
 }
 export interface ConfirmModel {
     title: string;
