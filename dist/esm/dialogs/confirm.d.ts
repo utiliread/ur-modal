@@ -24,5 +24,5 @@ export interface ConfirmModel {
 export interface ConfirmButton {
     text?: string;
     btnClass?: string;
-    ok?: boolean;
+    cancels?: boolean;
 }

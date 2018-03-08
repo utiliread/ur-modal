@@ -32,6 +32,7 @@ var ConfirmModal = /** @class */ (function () {
                 }
                 model.buttons.cancel.text = model.buttons.cancel.text || 'Annulér';
                 model.buttons.cancel.btnClass = model.buttons.cancel.btnClass || 'btn-default';
+                model.buttons.cancel.cancels = true;
             }
             for (var id in model.buttons) {
                 this.buttons.set(id, model.buttons[id]);
@@ -40,7 +41,7 @@ var ConfirmModal = /** @class */ (function () {
     };
     ConfirmModal.prototype.click = function (id) {
         var button = this.buttons.get(id);
-        if (button.ok === false) {
+        if (button.cancels === true) {
             this.controller.cancel(id);
         }
         else {

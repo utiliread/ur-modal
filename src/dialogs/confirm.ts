@@ -32,6 +32,7 @@ export class ConfirmModal {
                 }
                 model.buttons.cancel.text = model.buttons.cancel.text || 'Annulér';
                 model.buttons.cancel.btnClass = model.buttons.cancel.btnClass || 'btn-default';
+                model.buttons.cancel.cancels = true;
             }
 
             for (let id in model.buttons) {
@@ -43,7 +44,7 @@ export class ConfirmModal {
     click(id: string) {
         let button = this.buttons.get(id)!;
 
-        if (button.ok === false) {
+        if (button.cancels === true) {
             this.controller.cancel(id);
         }
         else {
@@ -69,5 +70,5 @@ export interface ConfirmModel {
 export interface ConfirmButton {
     text?: string;
     btnClass?: string;
-    ok?: boolean;
+    cancels?: boolean;
 }
