@@ -21,12 +21,20 @@ var ConfirmModal = /** @class */ (function () {
         this.closeable = model.closeable === undefined || model.closeable === true;
         if (model.buttons) {
             if (model.buttons.ok) {
+                if (model.buttons.ok === true) {
+                    model.buttons.ok = {};
+                }
+                model.buttons.ok.text = model.buttons.ok.text || 'OK';
                 model.buttons.ok.btnClass = model.buttons.ok.btnClass || 'btn-primary';
                 if (!model.buttons.ok.action) {
                     model.buttons.ok.action = function (id) { return _this.controller.ok(id); };
                 }
             }
             if (model.buttons.cancel) {
+                if (model.buttons.cancel === true) {
+                    model.buttons.cancel = {};
+                }
+                model.buttons.cancel.text = model.buttons.cancel.text || 'Annulér';
                 model.buttons.cancel.btnClass = model.buttons.cancel.btnClass || 'btn-default';
                 if (!model.buttons.cancel.action) {
                     model.buttons.cancel.action = function (id) { return _this.controller.cancel(id); };

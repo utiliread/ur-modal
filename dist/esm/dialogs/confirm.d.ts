@@ -16,8 +16,8 @@ export interface ConfirmModel {
     buttons?: {
         [id: string]: ConfirmButton;
     } & {
-        ok?: ConfirmButton;
-        cancel?: ConfirmButton;
+        ok?: ConfirmButton | true;
+        cancel?: ConfirmButton | true;
     };
 }
 export interface ConfirmButton {
