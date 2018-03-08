@@ -9,8 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aurelia_dialog_1 = require("aurelia-dialog");
 var aurelia_framework_1 = require("aurelia-framework");
+var aurelia_dialog_1 = require("aurelia-dialog");
+aurelia_framework_1.PLATFORM.moduleName('./confirm.html');
 var ConfirmModal = /** @class */ (function () {
     function ConfirmModal(controller) {
         this.controller = controller;

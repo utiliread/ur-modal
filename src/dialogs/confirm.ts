@@ -1,5 +1,8 @@
+import { PLATFORM, autoinject } from 'aurelia-framework'
+
 import { DialogController } from 'aurelia-dialog';
-import { autoinject } from 'aurelia-framework'
+
+PLATFORM.moduleName('./confirm.html');
 
 @autoinject()
 export class ConfirmModal {
