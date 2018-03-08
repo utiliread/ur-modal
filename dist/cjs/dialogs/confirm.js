@@ -17,7 +17,6 @@ var ConfirmModal = /** @class */ (function () {
         this.buttons = new Map();
     }
     ConfirmModal.prototype.activate = function (model) {
-        var _this = this;
         this.title = model.title;
         this.content = model.content;
         this.closeable = model.closeable === undefined || model.closeable === true;
@@ -28,9 +27,6 @@ var ConfirmModal = /** @class */ (function () {
                 }
                 model.buttons.ok.text = model.buttons.ok.text || 'OK';
                 model.buttons.ok.btnClass = model.buttons.ok.btnClass || 'btn-primary';
-                if (!model.buttons.ok.action) {
-                    model.buttons.ok.action = function (id) { return _this.controller.ok(id); };
-                }
             }
             if (model.buttons.cancel) {
                 if (model.buttons.cancel === true) {
@@ -38,15 +34,19 @@ var ConfirmModal = /** @class */ (function () {
                 }
                 model.buttons.cancel.text = model.buttons.cancel.text || 'Annulér';
                 model.buttons.cancel.btnClass = model.buttons.cancel.btnClass || 'btn-default';
-                if (!model.buttons.cancel.action) {
-                    model.buttons.cancel.action = function (id) { return _this.controller.cancel(id); };
-                }
             }
             for (var id in model.buttons) {
-                var button = model.buttons[id];
-                button.action = button.action || nop;
-                this.buttons.set(id, button);
+                this.buttons.set(id, model.buttons[id]);
             }
+        }
+    };
+    ConfirmModal.prototype.click = function (id) {
+        var button = this.buttons.get(id);
+        if (button.ok === false) {
+            this.controller.cancel(id);
+        }
+        else {
+            this.controller.ok(id);
         }
     };
     ConfirmModal.prototype.close = function () {
@@ -59,6 +59,4 @@ var ConfirmModal = /** @class */ (function () {
     return ConfirmModal;
 }());
 exports.ConfirmModal = ConfirmModal;
-function nop() {
-}
 //# sourceMappingURL=confirm.js.map
