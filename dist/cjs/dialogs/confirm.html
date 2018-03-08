@@ -9,7 +9,7 @@
                 ${content}
             </div>
             <div class="modal-footer">
-                <button repeat.for="id,button of buttons" type="button"
+                <button repeat.for="[id, btn] of buttons" type="button"
                     innerhtml.bind="btn.text"
                     class="btn ${btn.btnClass}"
                     click.delegate="click(id)">
