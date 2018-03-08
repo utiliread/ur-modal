@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_dialog_1 = require("aurelia-dialog");
-aurelia_framework_1.PLATFORM.moduleName('./confirm.html');
 var ConfirmModal = /** @class */ (function () {
     function ConfirmModal(controller) {
         this.controller = controller;
@@ -44,6 +43,7 @@ var ConfirmModal = /** @class */ (function () {
     };
     ConfirmModal = __decorate([
         aurelia_framework_1.autoinject(),
+        aurelia_framework_1.useView('./confirm.html'),
         __metadata("design:paramtypes", [aurelia_dialog_1.DialogController])
     ], ConfirmModal);
     return ConfirmModal;

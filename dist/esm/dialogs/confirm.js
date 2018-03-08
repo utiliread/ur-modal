@@ -7,9 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { PLATFORM, autoinject } from 'aurelia-framework';
+import { autoinject, useView } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
-PLATFORM.moduleName('./confirm.html');
 var ConfirmModal = /** @class */ (function () {
     function ConfirmModal(controller) {
         this.controller = controller;
@@ -42,6 +41,7 @@ var ConfirmModal = /** @class */ (function () {
     };
     ConfirmModal = __decorate([
         autoinject(),
+        useView('./confirm.html'),
         __metadata("design:paramtypes", [DialogController])
     ], ConfirmModal);
     return ConfirmModal;
